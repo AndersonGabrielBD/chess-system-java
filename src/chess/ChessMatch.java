@@ -88,7 +88,7 @@ public class ChessMatch {
 		
 		ChessPiece movedPiece = (ChessPiece)board.piece(target);
 		
-		// #specialmove promotion
+		// #movimento especial de promoção
 		promoted = null;
 		if (movedPiece instanceof Pawn) {
 			if ((movedPiece.getColor() == Color.BRANCO && target.getRow() == 0) || (movedPiece.getColor() == Color.PRETO && target.getRow() == 7)) {
@@ -106,7 +106,7 @@ public class ChessMatch {
 			nextTurn();
 		}
 		
-		// #specialmove en passant
+		// #movimento especial en passant
 		if (movedPiece instanceof Pawn && (target.getRow() == source.getRow() - 2 || target.getRow() == source.getRow() + 2)) {
 			enPassantVulnerable = movedPiece;
 		}
@@ -172,7 +172,7 @@ public class ChessMatch {
 			rook.increaseMoveCount();
 		}		
 		
-		// #specialmove en passant
+		// #movimento especial en passant
 		if (p instanceof Pawn) {
 			if (source.getColumn() != target.getColumn() && capturedPiece == null) {
 				Position pawnPosition;
@@ -202,7 +202,7 @@ public class ChessMatch {
 			piecesOnTheBoard.add(capturedPiece);
 		}
 
-		// #specialmove castling kingside rook
+		// #movimmento especial roque na ala do rei
 		if (p instanceof King && target.getColumn() == source.getColumn() + 2) {
 			Position sourceT = new Position(source.getRow(), source.getColumn() + 3);
 			Position targetT = new Position(source.getRow(), source.getColumn() + 1);
@@ -211,7 +211,7 @@ public class ChessMatch {
 			rook.decreaseMoveCount();
 		}
 
-		// #specialmove castling queenside rook
+		// #movimmento especial roque na ala da rainha
 		if (p instanceof King && target.getColumn() == source.getColumn() - 2) {
 			Position sourceT = new Position(source.getRow(), source.getColumn() - 4);
 			Position targetT = new Position(source.getRow(), source.getColumn() - 1);

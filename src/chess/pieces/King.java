@@ -36,57 +36,57 @@ public class King extends ChessPiece {
 		
 		Position p = new Position(0, 0);
 		
-		// above
+		// acima
 		p.setValues(position.getRow() - 1, position.getColumn());
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// below
+		// abaixo
 		p.setValues(position.getRow() + 1, position.getColumn());
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// left
+		// esquerda
 		p.setValues(position.getRow(), position.getColumn() - 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// right
+		// direita
 		p.setValues(position.getRow(), position.getColumn() + 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// nw
+		// noroeste
 		p.setValues(position.getRow() - 1, position.getColumn() - 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// ne
+		// nordeste
 		p.setValues(position.getRow() - 1, position.getColumn() + 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// sw
+		// sudoeste
 		p.setValues(position.getRow() + 1, position.getColumn() - 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 		
-		// se
+		// sudeste
 		p.setValues(position.getRow() + 1, position.getColumn() + 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// #specialmove castling
+		// #movimmento especial roque
 		if (getMoveCount() == 0 && !chessMatch.getCheck()) {
-			// #specialmove castling kingside rook
+			// #movimmento especial roque na ala do rei
 			Position posT1 = new Position(position.getRow(), position.getColumn() + 3);
 			if (testRookCastling(posT1)) {
 				Position p1 = new Position(position.getRow(), position.getColumn() + 1);
@@ -95,7 +95,8 @@ public class King extends ChessPiece {
 					mat[position.getRow()][position.getColumn() + 2] = true;
 				}
 			}
-			// #specialmove castling queenside rook
+			// movimmento especial roque na ala da rainha
+
 			Position posT2 = new Position(position.getRow(), position.getColumn() - 4);
 			if (testRookCastling(posT2)) {
 				Position p1 = new Position(position.getRow(), position.getColumn() - 1);

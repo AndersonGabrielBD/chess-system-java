@@ -25,7 +25,7 @@ public class UI {
 	public static final String ANSI_CYAN = "\u001B[36m";
 	public static final String ANSI_WHITE = "\u001B[37m";
 
-	public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
+	public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m"; 			//constantes de cores
 	public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
 	public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
 	public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
@@ -37,7 +37,7 @@ public class UI {
 	// https://stackoverflow.com/questions/2979383/java-clear-the-console
 	public static void clearScreen() {
 		System.out.print("\033[H\033[2J");
-		System.out.flush();
+		System.out.flush();									// limpar console
 	}	
 	
 	public static ChessPosition readChessPosition(Scanner sc) {
@@ -59,7 +59,7 @@ public class UI {
 		System.out.println();
 		System.out.println("Turno : " + chessMatch.getTurn());
 		if (!chessMatch.getCheckMate()) {
-			System.out.println("Esperando jogador: " + chessMatch.getCurrentPlayer());
+			System.out.println("Esperando jogador: " + chessMatch.getCurrentPlayer());  //impressão do estado da partida
 			if (chessMatch.getCheck()) {
 				System.out.println("CHECK!");
 			}
@@ -73,7 +73,7 @@ public class UI {
 	public static void printBoard(ChessPiece[][] pieces) {
 		for (int i = 0; i < pieces.length; i++) {
 			System.out.print((8 - i) + " ");
-			for (int j = 0; j < pieces.length; j++) {
+			for (int j = 0; j < pieces.length; j++) {		//imprimir tabuleiro
 				printPiece(pieces[i][j], false);
 			}
 			System.out.println();
